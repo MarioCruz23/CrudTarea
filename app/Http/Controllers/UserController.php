@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 
+
+
 class UserController extends Controller
 {
     public function listar(){
@@ -19,7 +21,8 @@ class UserController extends Controller
     public function save(Request $request){
         $validator = $this->validate($request, [
             'nombre'=> 'required|string|max:255',
-            'email'=> 'required|string|max:255|email|unique:usuarios'
+            'email'=> 'required|string|max:255|email|unique:usuarios',
+            'rol'=> 'required|string|max:255'
         ]);
         $userdata = request()->except('_token');
         \App\Models\Usuario::insert($userdata);

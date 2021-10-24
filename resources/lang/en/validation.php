@@ -149,6 +149,11 @@ return [
             'email' => 'Formato email incorrecto',
             'unique' => 'Emial existente'
         ],
+        'rol' => [
+            'required' => 'El rol es obligatorio',
+            'string' => 'El rol tiene que ser un texto',
+            'max255' => 'El email es demasiado largo',
+        ],
     ],
 
     /*

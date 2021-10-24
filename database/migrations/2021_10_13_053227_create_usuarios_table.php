@@ -17,6 +17,7 @@ class CreateUsuariosTable extends Migration
             $table->bigIncrements('id');
             $table->String('nombre');
             $table->String('email');
+            $table->string('rol');
             $table->timestamps();
         });
     }

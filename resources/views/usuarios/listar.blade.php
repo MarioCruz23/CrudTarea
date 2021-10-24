@@ -1,9 +1,22 @@
 @extends('layouts.base')
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Usuarios Registrados</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{ url('/form') }}">Agregar usuario</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <h2 class="text-center mb-5">Usuarios Registrados</h2>
-            <a class="btn btn-success mb-4" href="{{ url('/form') }}">Agregar usuario</a>
             @if(session('usuarioEliminado'))
             <div class="alert alert-success">
             {{ session('usuarioEliminado')}}
@@ -14,6 +27,7 @@
                     <tr>
                         <th>Nombre</th>
                         <th>Email</th>
+                        <th>Rol</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -22,6 +36,7 @@
                     <tr>
                         <td>{{ $user->nombre }}</td>
                         <td>{{ $user->email }}</td>
+                        <td>{{ $user->rol }}</td>
                         <td>
                             <a href="{{ route ('editform', $user->id) }}" class="btn btn-primary mb-1 ">
                             <i class="fas fa-pencil-alt "></i>
