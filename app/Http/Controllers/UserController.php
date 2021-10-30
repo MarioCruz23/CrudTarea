@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-
-
-
+use Imagen;
 
 class UserController extends Controller
 {
@@ -19,12 +17,17 @@ class UserController extends Controller
         return view('usuarios.userform');
     }
     public function save(Request $request){
+        
         $validator = $this->validate($request, [
             'nombre'=> 'required|string|max:255',
             'email'=> 'required|string|max:255|email|unique:usuarios',
-            'rol'=> 'required|string|max:255'
+            'rol' => 'required',
+            'img' => 'required',
         ]);
         $userdata = request()->except('_token');
+        if($request->hasFile('img')){
+            $userdata['img']=$request->file('img')->store('uploads','public');
+        }
         \App\Models\Usuario::insert($userdata);
         return back()->with('UsuarioGuardado','Usuario Guardado');
     }
