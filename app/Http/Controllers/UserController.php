@@ -6,8 +6,18 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Imagen;
 
-class UserController extends Controller
-{
+class UserController extends Controller{
+    public function __construct(){
+        $this->middleware('auth');
+    }
+    public function editProfile(Request $request){
+        
+    }
+
+    public function changePassword(Request $request)
+    {
+        
+    }
     public function getAll(){
         $usuarios=\App\Models\Usuario::all();
         return $usuarios;
