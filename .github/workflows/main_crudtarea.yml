@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'CrudTarea'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CCC847D80C774DFC88E186A73CF1D50E }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E9FC2DE864EB419987198761976FBA5C }}
           package: .
