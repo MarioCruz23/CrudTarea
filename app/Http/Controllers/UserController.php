@@ -20,7 +20,7 @@ class UserController extends Controller{
     }
     public function getAll(){
         $usuarios=\App\Models\Usuario::all();
-        return $usuarios;
+        return response()->json($usuarios);
     }
     public function deleteusuarios($id){
         $usuario = \App\Models\Usuario::find($id);
